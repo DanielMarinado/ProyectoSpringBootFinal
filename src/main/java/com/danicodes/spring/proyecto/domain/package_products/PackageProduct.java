@@ -31,8 +31,9 @@ public class PackageProduct {
     private Boolean is_deleted = Boolean.FALSE;
 
     private LocalDateTime deleted_at;
-
+    /*
     @ManyToOne(fetch = FetchType.LAZY)
     private Package myPackage;
+    */
 
 }

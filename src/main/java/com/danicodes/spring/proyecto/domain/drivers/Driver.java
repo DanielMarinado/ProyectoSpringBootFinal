@@ -34,6 +34,8 @@ public class Driver {
 
     private LocalDateTime deleted_at;
 
+
     @OneToMany(mappedBy = "driver")
     private Set<Truck> trucks;
+
 }

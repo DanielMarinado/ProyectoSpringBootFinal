@@ -26,9 +26,12 @@ public class Truck {
 
     private LocalDateTime deleted_at;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Driver driver;
-
+/*
     @OneToMany(mappedBy = "truck")
     private Set<Package> packages;
+
+     */
 }

@@ -44,7 +44,7 @@ public class ProyectoApplication  implements CommandLineRunner {
 
 		/*
 
-			Pruebas para validar el modelo
+			Pruebas sólo para ver flujos
 
 		 */
 
@@ -63,8 +63,10 @@ public class ProyectoApplication  implements CommandLineRunner {
 		packageProduct.setQuantity(2);
 		packageProductRepositoryJpa.save(packageProduct);
 
+		//
+		// DRIVERS 1
+		//
 
-		// DRIVERS
 		var driver = new Driver();
 		driver.setCode("007");
 		driver.setName("SuperDani");
@@ -72,6 +74,31 @@ public class ProyectoApplication  implements CommandLineRunner {
 		driver.setEmail("driver1@elDriver.com");
 		driver.setEnabled(true);
 		driverRepositoryJpa.save(driver);
+
+		var truckDriver = new Truck();
+		truckDriver.setCode("TRUCK007");
+		truckDriver.setEnabled(true);
+		truckDriver.setDriver(driver);
+		truckRepositoryJpa.save(truckDriver);
+
+
+		//
+		// DRIVERS 2
+		//
+
+		var driver2 = new Driver();
+		driver2.setCode("008");
+		driver2.setName("SuperDani2");
+		driver2.setCellphone("569 2");
+		driver2.setEmail("driver2@elDriver.com");
+		driver2.setEnabled(true);
+		driverRepositoryJpa.save(driver2);
+
+		//
+		// DELETE DRIVER 2
+		//
+
+		//driverRepositoryJpa.delete(driver2);
 
 		//var dani = driverRepositoryJpa.findAllByName("SuperDani");
 
