@@ -3,12 +3,16 @@ package com.danicodes.proyectospringboot.domain.package_products;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
 @Data
+@SQLDelete(sql = "UPDATE package_product SET is_deleted=true, deleted_at=now() WHERE uuid=?")
+@Where(clause = "is_deleted is false")
 public class PackageProduct {
     @Id
     private UUID uuid = UUID.randomUUID();
@@ -21,7 +25,7 @@ public class PackageProduct {
 
     private Integer quantity;
 
-    private Boolean is_deleted;
+    private Boolean is_deleted = Boolean.FALSE;
 
     private LocalDateTime deleted_at;
 
