@@ -1,10 +1,10 @@
-package com.danicodes.proyecto.springboot;
+package com.danicodes.proyectospringboot;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class ProyectoSpringbootApplicationTests {
 
 	@Test
 	void contextLoads() {

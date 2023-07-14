@@ -1,13 +1,13 @@
-package com.danicodes.proyecto.springboot;
+package com.danicodes.proyectospringboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class ProyectoSpringbootApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(ProyectoSpringbootApplication.class, args);
 	}
 
 }
