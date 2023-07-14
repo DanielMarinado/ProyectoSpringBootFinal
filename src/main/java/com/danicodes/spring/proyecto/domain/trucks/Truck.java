@@ -1,12 +1,13 @@
 package com.danicodes.spring.proyecto.domain.trucks;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import com.danicodes.spring.proyecto.domain.drivers.Driver;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -24,4 +25,10 @@ public class Truck {
     private Boolean is_deleted = Boolean.FALSE;
 
     private LocalDateTime deleted_at;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Driver driver;
+
+    @OneToMany(mappedBy = "truck")
+    private Set<Package> packages;
 }

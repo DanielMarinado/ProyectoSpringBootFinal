@@ -1,15 +1,15 @@
 package com.danicodes.spring.proyecto.domain.packages;
 
+import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
 import com.danicodes.spring.proyecto.domain.packages.enums.StatusPackage;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import com.danicodes.spring.proyecto.domain.trucks.Truck;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -32,5 +32,11 @@ public class Package {
     private Boolean is_deleted = Boolean.FALSE;
 
     private LocalDateTime deleted_at;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Truck truck;
+
+    @OneToMany(mappedBy = "myPackage")
+    private Set<PackageProduct> packageProducts;
 
 }

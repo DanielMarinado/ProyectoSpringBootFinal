@@ -1,7 +1,10 @@
 package com.danicodes.spring.proyecto.domain.package_products;
 
+import com.danicodes.spring.proyecto.domain.packages.Package;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
@@ -28,5 +31,8 @@ public class PackageProduct {
     private Boolean is_deleted = Boolean.FALSE;
 
     private LocalDateTime deleted_at;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Package myPackage;
 
 }
