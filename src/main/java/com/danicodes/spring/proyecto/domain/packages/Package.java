@@ -1,6 +1,6 @@
 package com.danicodes.spring.proyecto.domain.packages;
 
-import com.danicodes.proyectospringboot.domain.packages.enums.StatusPackage;
+import com.danicodes.spring.proyecto.domain.packages.enums.StatusPackage;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
