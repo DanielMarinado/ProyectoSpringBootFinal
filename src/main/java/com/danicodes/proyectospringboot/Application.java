@@ -8,6 +8,7 @@ import com.danicodes.proyectospringboot.domain.drivers.Driver;
 import com.danicodes.proyectospringboot.domain.package_products.PackageProduct;
 import com.danicodes.proyectospringboot.domain.packages.Package;
 import com.danicodes.proyectospringboot.domain.trucks.Truck;
+import com.danicodes.proyectospringboot.service.driver.impl.DriverServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -17,6 +18,9 @@ import java.time.LocalDateTime;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
+
+	@Autowired
+	DriverServiceImpl driverService;
 
 	@Autowired
 	private DriverRepositoryJpa driverRepositoryJpa;
@@ -69,11 +73,16 @@ public class Application implements CommandLineRunner {
 		driver.setEnabled(true);
 		driverRepositoryJpa.save(driver);
 
+		//var dani = driverRepositoryJpa.findAllByName("SuperDani");
+
 		// TRUCKS
 		var truck = new Truck();
 		truck.setCode("TRUCK007");
 		truck.setEnabled(true);
 		truckRepositoryJpa.save(truck);
+
+		var daniService = driverService.findAll();
+		var depurationPoint = "depurationPoint";
 
 	}
 }
