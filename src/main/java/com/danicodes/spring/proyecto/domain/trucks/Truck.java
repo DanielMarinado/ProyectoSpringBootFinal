@@ -1,6 +1,7 @@
 package com.danicodes.spring.proyecto.domain.trucks;
 
 import com.danicodes.spring.proyecto.domain.drivers.Driver;
+import com.danicodes.spring.proyecto.domain.packages.Package;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
@@ -29,9 +30,9 @@ public class Truck {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Driver driver;
-/*
-    @OneToMany(mappedBy = "truck")
-    private Set<Package> packages;
 
-     */
+    @OneToMany(mappedBy = "truck")
+    private Set<Package> myPkg;
+
+
 }

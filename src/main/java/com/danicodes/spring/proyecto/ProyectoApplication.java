@@ -48,20 +48,6 @@ public class ProyectoApplication  implements CommandLineRunner {
 
 		 */
 
-		// PACKAGES
-		var myPackage = new Package();
-		myPackage.setCode("PKG007");
-		myPackage.setWeight(15.0);
-		myPackage.setSchedule(LocalDateTime.now());
-		packageRepositoryJpa.save(myPackage);
-
-		// PACKAGE-PRODUCTS
-		var packageProduct = new PackageProduct();
-		packageProduct.setCode("PKG-PRD007");
-		packageProduct.setWeight(30.0);
-		packageProduct.setSku("#1256");
-		packageProduct.setQuantity(2);
-		packageProductRepositoryJpa.save(packageProduct);
 
 		//
 		// DRIVERS 1
@@ -75,38 +61,35 @@ public class ProyectoApplication  implements CommandLineRunner {
 		driver.setEnabled(true);
 		driverRepositoryJpa.save(driver);
 
+		// DRIVER -> TRUCKS
 		var truckDriver = new Truck();
 		truckDriver.setCode("TRUCK007");
 		truckDriver.setEnabled(true);
 		truckDriver.setDriver(driver);
 		truckRepositoryJpa.save(truckDriver);
 
+		// TRUCK -> PACKAGES
+		var truckRecent = truckRepositoryJpa.findByCode("TRUCK007").orElseThrow( ()-> new IllegalStateException(""));
 
-		//
-		// DRIVERS 2
-		//
+		// PACKAGES
+		var myPackage = new Package();
+		myPackage.setCode("PKG007");
+		myPackage.setWeight(15.0);
+		myPackage.setSchedule(LocalDateTime.now());
+		myPackage.setTruck(truckRecent);
+		packageRepositoryJpa.save(myPackage);
 
-		var driver2 = new Driver();
-		driver2.setCode("008");
-		driver2.setName("SuperDani2");
-		driver2.setCellphone("569 2");
-		driver2.setEmail("driver2@elDriver.com");
-		driver2.setEnabled(true);
-		driverRepositoryJpa.save(driver2);
+		var packageRecent = packageRepositoryJpa.findByCode("PKG007").orElseThrow( ()-> new IllegalStateException(""));
 
-		//
-		// DELETE DRIVER 2
-		//
+		// PACKAGE-PRODUCTS
+		var packageProduct = new PackageProduct();
+		packageProduct.setCode("PKG-PRD007");
+		packageProduct.setWeight(30.0);
+		packageProduct.setSku("#1256");
+		packageProduct.setQuantity(2);
+		packageProduct.setMyPackage(packageRecent);
+		packageProductRepositoryJpa.save(packageProduct);
 
-		//driverRepositoryJpa.delete(driver2);
-
-		//var dani = driverRepositoryJpa.findAllByName("SuperDani");
-
-		// TRUCKS
-		var truck = new Truck();
-		truck.setCode("TRUCK007");
-		truck.setEnabled(true);
-		truckRepositoryJpa.save(truck);
 
 		var daniService = driverService.findAll();
 		var depurationPoint = "depurationPoint";

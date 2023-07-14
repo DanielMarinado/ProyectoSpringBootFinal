@@ -33,11 +33,11 @@ public class Package {
 
     private LocalDateTime deleted_at;
 
-/*
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Truck truck;
 
     @OneToMany(mappedBy = "myPackage")
     private Set<PackageProduct> packageProducts;
-*/
+
 }

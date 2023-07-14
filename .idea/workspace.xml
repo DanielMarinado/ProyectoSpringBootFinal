@@ -7,11 +7,9 @@
     <list default="true" id="48aafdce-34a0-46be-b0ba-cc0fbe437747" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/ProyectoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/ProyectoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/drivers/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/drivers/Driver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/package_products/PackageProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/package_products/PackageProduct.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/packages/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/packages/Package.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/trucks/Truck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/trucks/Truck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
