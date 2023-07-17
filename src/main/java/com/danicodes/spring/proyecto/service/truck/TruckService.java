@@ -9,6 +9,8 @@ public interface TruckService {
 
     Truck findByUuid(UUID truckUuid);
 
+    Truck findByCode(String code);
+
     Truck save(Truck truck);
 
     Truck update(UUID truckUuid, Truck truck);

@@ -9,6 +9,8 @@ public interface PackageService {
 
     Package findByUuid(UUID packageUuid);
 
+    Package findByCode(String code);
+
     Package save(Package myPackage);
 
     Package update(UUID packageUuid, Package myPackage);

@@ -26,6 +26,11 @@ public class TruckServiceImpl implements TruckService {
     }
 
     @Override
+    public Truck findByCode(String code) {
+        return truckRepositoryJpa.findByCode(code).orElseThrow( ()-> new IllegalStateException(""));
+    }
+
+    @Override
     public Truck save(Truck truck) {
         return truckRepositoryJpa.save(truck);
     }

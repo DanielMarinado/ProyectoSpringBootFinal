@@ -1,14 +1,15 @@
 package com.danicodes.spring.proyecto;
 
-import com.danicodes.spring.proyecto.dao.drivers.DriverRepositoryJpa;
-import com.danicodes.spring.proyecto.dao.package_products.PackageProductRepositoryJpa;
-import com.danicodes.spring.proyecto.dao.packages.PackageRepositoryJpa;
 import com.danicodes.spring.proyecto.dao.trucks.TruckRepositoryJpa;
 import com.danicodes.spring.proyecto.domain.drivers.Driver;
 import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
 import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.domain.trucks.Truck;
-import com.danicodes.spring.proyecto.service.driver.impl.DriverServiceImpl;
+import com.danicodes.spring.proyecto.service.driver.DriverService;
+import com.danicodes.spring.proyecto.service.package_product.PackageProductService;
+import com.danicodes.spring.proyecto.service.packages.PackageService;
+import com.danicodes.spring.proyecto.service.truck.TruckService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -20,25 +21,23 @@ import java.time.LocalDateTime;
 public class ProyectoApplication  implements CommandLineRunner {
 
 	@Autowired
-	DriverServiceImpl driverService;
+	DriverService driverService;
 
 	@Autowired
-	private DriverRepositoryJpa driverRepositoryJpa;
+	private PackageService packageService;
 
 	@Autowired
-	private PackageRepositoryJpa packageRepositoryJpa;
+	private PackageProductService packageProductService;
 
 	@Autowired
-	private PackageProductRepositoryJpa packageProductRepositoryJpa;
-
-	@Autowired
-	private TruckRepositoryJpa truckRepositoryJpa;
+	private TruckService truckService;
 
 	public static void main(String[] args) {
 
 		SpringApplication.run(ProyectoApplication.class, args);
 	}
 
+	@Transactional
 	@Override
 	public void run(String... args) throws Exception {
 
@@ -59,17 +58,17 @@ public class ProyectoApplication  implements CommandLineRunner {
 		driver.setCellphone("569 12312312");
 		driver.setEmail("driver1@elDriver.com");
 		driver.setEnabled(true);
-		driverRepositoryJpa.save(driver);
+		driverService.save(driver);
 
 		// DRIVER -> TRUCKS
 		var truckDriver = new Truck();
 		truckDriver.setCode("TRUCK007");
 		truckDriver.setEnabled(true);
 		truckDriver.setDriver(driver);
-		truckRepositoryJpa.save(truckDriver);
+		truckService.save(truckDriver);
 
 		// TRUCK -> PACKAGES
-		var truckRecent = truckRepositoryJpa.findByCode("TRUCK007").orElseThrow( ()-> new IllegalStateException(""));
+		var truckRecent = truckService.findByCode("TRUCK007");
 
 		// PACKAGES
 		var myPackage = new Package();
@@ -77,9 +76,9 @@ public class ProyectoApplication  implements CommandLineRunner {
 		myPackage.setWeight(15.0);
 		myPackage.setSchedule(LocalDateTime.now());
 		myPackage.setTruck(truckRecent);
-		packageRepositoryJpa.save(myPackage);
+		packageService.save(myPackage);
 
-		var packageRecent = packageRepositoryJpa.findByCode("PKG007").orElseThrow( ()-> new IllegalStateException(""));
+		var packageRecent = packageService.findByCode("PKG007");
 
 		// PACKAGE-PRODUCTS
 		var packageProduct = new PackageProduct();
@@ -88,7 +87,7 @@ public class ProyectoApplication  implements CommandLineRunner {
 		packageProduct.setSku("#1256");
 		packageProduct.setQuantity(2);
 		packageProduct.setMyPackage(packageRecent);
-		packageProductRepositoryJpa.save(packageProduct);
+		packageProductService.save(packageProduct);
 
 
 		var daniService = driverService.findAll();

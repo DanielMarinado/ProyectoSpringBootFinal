@@ -26,6 +26,11 @@ public class PackageServiceImpl implements PackageService {
     }
 
     @Override
+    public Package findByCode(String code) {
+        return packageRepositoryJpa.findByCode(code).orElseThrow( ()-> new IllegalStateException("") );
+    }
+
+    @Override
     public Package save(Package myPackage) {
         return packageRepositoryJpa.save(myPackage);
     }
