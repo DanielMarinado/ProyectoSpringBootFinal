@@ -1,6 +1,5 @@
 package com.danicodes.spring.proyecto;
 
-import com.danicodes.spring.proyecto.dao.trucks.TruckRepositoryJpa;
 import com.danicodes.spring.proyecto.domain.drivers.Driver;
 import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
 import com.danicodes.spring.proyecto.domain.packages.Package;
