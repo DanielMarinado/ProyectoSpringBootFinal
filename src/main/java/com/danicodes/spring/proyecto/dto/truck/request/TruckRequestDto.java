@@ -1,5 +1,7 @@
 package com.danicodes.spring.proyecto.dto.truck.request;
 
+import com.danicodes.spring.proyecto.domain.drivers.Driver;
+import com.danicodes.spring.proyecto.domain.trucks.Truck;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -10,9 +12,17 @@ import java.util.UUID;
 @Setter
 @ToString
 public class TruckRequestDto {
-    private UUID uuid;
-
     private String code;
 
     private Boolean enabled;
+
+    public Truck toEntity(Driver driver) {
+
+        var truck = new Truck();
+        truck.setCode(this.code);
+        truck.setEnabled(this.enabled);
+        truck.setDriver(driver);
+
+        return truck;
+    }
 }

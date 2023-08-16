@@ -4,6 +4,8 @@ import com.danicodes.spring.proyecto.domain.drivers.Driver;
 import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
 import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.domain.trucks.Truck;
+import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
+import com.danicodes.spring.proyecto.mapper.trucks.TrucksMapper;
 import com.danicodes.spring.proyecto.service.driver.DriverService;
 import com.danicodes.spring.proyecto.service.package_product.PackageProductService;
 import com.danicodes.spring.proyecto.service.packages.PackageService;
@@ -60,11 +62,10 @@ public class ProyectoApplication  implements CommandLineRunner {
 		driverService.save(driver);
 
 		// DRIVER -> TRUCKS
-		var truckDriver = new Truck();
-		truckDriver.setCode("TRUCK007");
-		truckDriver.setEnabled(true);
-		truckDriver.setDriver(driver);
-		truckService.save(truckDriver);
+		var truck = new TruckRequestDto();
+		truck.setCode("TRUCK007");
+		truck.setEnabled(true);
+		truckService.addToDriver(driver, truck);
 
 		// TRUCK -> PACKAGES
 		var truckRecent = truckService.findByCode("TRUCK007");
@@ -74,7 +75,7 @@ public class ProyectoApplication  implements CommandLineRunner {
 		myPackage.setCode("PKG007");
 		myPackage.setWeight(15.0);
 		myPackage.setSchedule(LocalDateTime.now());
-		myPackage.setTruck(truckRecent);
+		//myPackage.setTruck(truckRecent);
 		packageService.save(myPackage);
 
 		var packageRecent = packageService.findByCode("PKG007");

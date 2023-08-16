@@ -10,7 +10,6 @@ import java.util.UUID;
 @Setter
 @ToString
 public class DriverRequestDto {
-    private UUID uuid;
     private String code;
     private String name;
     private String cellphone;

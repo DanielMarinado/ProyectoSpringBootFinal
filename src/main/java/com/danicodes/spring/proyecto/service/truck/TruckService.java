@@ -1,17 +1,25 @@
 package com.danicodes.spring.proyecto.service.truck;
 
+import com.danicodes.spring.proyecto.domain.drivers.Driver;
 import com.danicodes.spring.proyecto.domain.trucks.Truck;
+import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
+import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
+import com.danicodes.spring.proyecto.dto.truck.response.TruckResponseDto;
+
 import java.util.List;
 import java.util.UUID;
 
 public interface TruckService {
-    List<Truck> findAll();
+    List<TruckResponseDto> findAll();
 
-    Truck findByUuid(UUID truckUuid);
+    TruckResponseDto findByUuid(UUID truckUuid);
 
-    Truck findByCode(String code);
+    TruckResponseDto findByCode(String code);
 
-    Truck save(Truck truck);
+    TruckResponseDto save(TruckRequestDto truck);
 
-    Truck update(UUID truckUuid, Truck truck);
+    TruckResponseDto update(UUID truckUuid, TruckRequestDto truck);
+    void delete(UUID truckUuid);
+
+    TruckResponseDto addToDriver(Driver driver, TruckRequestDto request);
 }

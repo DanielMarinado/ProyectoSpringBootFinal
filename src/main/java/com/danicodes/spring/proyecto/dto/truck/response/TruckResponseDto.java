@@ -1,5 +1,6 @@
 package com.danicodes.spring.proyecto.dto.truck.response;
 
+import com.danicodes.spring.proyecto.domain.trucks.Truck;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
