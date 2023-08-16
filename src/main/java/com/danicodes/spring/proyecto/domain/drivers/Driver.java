@@ -1,9 +1,7 @@
 package com.danicodes.spring.proyecto.domain.drivers;
 
 import com.danicodes.spring.proyecto.domain.trucks.Truck;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
@@ -35,7 +33,7 @@ public class Driver {
     private LocalDateTime deleted_at;
 
 
-    @OneToMany(mappedBy = "driver")
-    private Set<Truck> trucks;
+    @OneToOne(mappedBy = "driver", fetch = FetchType.LAZY)
+    private Truck truck;
 
 }

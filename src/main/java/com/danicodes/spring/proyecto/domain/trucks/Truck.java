@@ -28,7 +28,7 @@ public class Truck {
     private LocalDateTime deleted_at;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     private Driver driver;
 
     @OneToMany(mappedBy = "truck")
