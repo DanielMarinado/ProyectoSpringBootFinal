@@ -26,6 +26,10 @@ public class DriversMapper {
         if (Objects.nonNull(driverSource.getEmail())) {
             driverTarget.setEmail(driverSource.getEmail());
         }
+
+        if (Objects.nonNull(driverSource.getEnabled())) {
+            driverTarget.setEnabled(driverSource.getEnabled());
+        }
     }
     public DriverResponseDto toResponseDto(Driver driver) {
         if( driver == null){
@@ -57,7 +61,7 @@ public class DriversMapper {
         return driverResponseDto;
     }
 
-    public Driver toDriver(DriverRequestDto request) {
+    public Driver requestToDriver(DriverRequestDto request) {
 
         if (request == null) {
             return null;
@@ -80,6 +84,43 @@ public class DriversMapper {
         if (Objects.nonNull(request.getEmail())) {
             driver.setEmail(request.getEmail());
         }
+
+        if (Objects.nonNull(request.getEnabled())) {
+            driver.setEnabled(request.getEnabled());
+        }
+
+        return driver;
+    }
+
+    public Driver responseToDriver(DriverResponseDto request) {
+
+        if (request == null) {
+            return null;
+        }
+
+        var driver = new Driver();
+
+        if (Objects.nonNull(request.getUuid())) {
+            driver.setUuid(request.getUuid());
+        }
+
+        if (Objects.nonNull(request.getCode())) {
+            driver.setCode(request.getCode());
+        }
+
+        if (Objects.nonNull(request.getName())) {
+            driver.setName(request.getName());
+        }
+
+        if (Objects.nonNull(request.getCellphone())) {
+            driver.setCellphone(request.getCellphone());
+        }
+
+        if (Objects.nonNull(request.getEmail())) {
+            driver.setEmail(request.getEmail());
+        }
+
+
 
         return driver;
     }

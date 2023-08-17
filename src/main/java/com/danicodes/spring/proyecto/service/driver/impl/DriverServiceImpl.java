@@ -2,6 +2,7 @@ package com.danicodes.spring.proyecto.service.driver.impl;
 
 import com.danicodes.spring.proyecto.dao.drivers.DriverRepositoryJpa;
 import com.danicodes.spring.proyecto.domain.drivers.Driver;
+import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
 import com.danicodes.spring.proyecto.dto.driver.response.DriverResponseDto;
 import com.danicodes.spring.proyecto.mapper.drivers.DriversMapper;
 import com.danicodes.spring.proyecto.service.driver.DriverService;
@@ -43,14 +44,16 @@ public class DriverServiceImpl implements DriverService {
     }
 
     @Override
-    public DriverResponseDto save(Driver driver) {
+    public DriverResponseDto save(DriverRequestDto request) {
+        var driver = driverMapper.requestToDriver(request);
         return driverMapper
                 .toResponseDto(driverRepositoryJpa.save(driver));
     }
 
     @Override
-    public DriverResponseDto update(UUID driverUuid, Driver driver) {
+    public DriverResponseDto update(UUID driverUuid, DriverRequestDto request) {
         var driverFound = findById(driverUuid);
+        var driver = driverMapper.requestToDriver(request);
 
         driverMapper.update(driver, driverFound);
 

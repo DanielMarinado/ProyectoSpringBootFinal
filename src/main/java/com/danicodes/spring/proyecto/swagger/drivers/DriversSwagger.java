@@ -1,6 +1,7 @@
 package com.danicodes.spring.proyecto.swagger.drivers;
 
 import com.danicodes.spring.proyecto.domain.drivers.Driver;
+import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
 import com.danicodes.spring.proyecto.dto.driver.response.DriverResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -38,7 +39,7 @@ public interface DriversSwagger {
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = DriverResponseDto.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema(implementation = DriverResponseDto.class), mediaType = "application/json") })
     })
-    public DriverResponseDto save(Driver request);
+    public DriverResponseDto save(DriverRequestDto request);
     @Operation(
             summary = "Actualizar un Driver",
             description = "Endpoint que nos ayuda a actualizar un Driver por medio de su uuid y la informacion a modificar"
@@ -47,7 +48,7 @@ public interface DriversSwagger {
             @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = DriverResponseDto.class), mediaType = "application/json") }),
             @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema(implementation = DriverResponseDto.class), mediaType = "application/json") })
     })
-    public DriverResponseDto update(UUID uuid,Driver driver);
+    public DriverResponseDto update(UUID uuid, DriverRequestDto driver);
     @Operation(
             summary = "Eliminar un Driver",
             description = "Endpoint que nos ayuda a eliminar un Driver por medio de su uuid"

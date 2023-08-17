@@ -1,6 +1,7 @@
 package com.danicodes.spring.proyecto.controller.drivers;
 
 import com.danicodes.spring.proyecto.domain.drivers.Driver;
+import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
 import com.danicodes.spring.proyecto.dto.driver.response.DriverResponseDto;
 import com.danicodes.spring.proyecto.service.driver.DriverService;
 import com.danicodes.spring.proyecto.swagger.drivers.DriversSwagger;
@@ -31,7 +32,7 @@ public class DriversController implements DriversSwagger {
 
     @PostMapping
     public DriverResponseDto save(
-            @Valid @RequestBody Driver request
+            @Valid @RequestBody DriverRequestDto request
     ) {
 
         return driverService.save(request);
@@ -40,7 +41,7 @@ public class DriversController implements DriversSwagger {
     @PutMapping("/{uuid}")
     public DriverResponseDto update(
             @PathVariable UUID uuid,
-            @RequestBody Driver driver
+            @RequestBody DriverRequestDto driver
     ) {
 
         return driverService.update(uuid, driver);

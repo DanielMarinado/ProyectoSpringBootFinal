@@ -4,7 +4,9 @@ import com.danicodes.spring.proyecto.domain.drivers.Driver;
 import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
 import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.domain.trucks.Truck;
+import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
 import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
+import com.danicodes.spring.proyecto.mapper.drivers.DriversMapper;
 import com.danicodes.spring.proyecto.mapper.trucks.TrucksMapper;
 import com.danicodes.spring.proyecto.service.driver.DriverService;
 import com.danicodes.spring.proyecto.service.package_product.PackageProductService;
@@ -23,6 +25,9 @@ public class ProyectoApplication  implements CommandLineRunner {
 
 	@Autowired
 	DriverService driverService;
+
+	@Autowired
+	DriversMapper driversMapper;
 
 	@Autowired
 	private PackageService packageService;
@@ -53,13 +58,15 @@ public class ProyectoApplication  implements CommandLineRunner {
 		// DRIVERS 1
 		//
 
-		var driver = new Driver();
-		driver.setCode("007");
-		driver.setName("SuperDani");
-		driver.setCellphone("569 12312312");
-		driver.setEmail("driver1@elDriver.com");
-		driver.setEnabled(true);
-		driverService.save(driver);
+		var driverRequestDto = new DriverRequestDto();
+		driverRequestDto.setCode("007");
+		driverRequestDto.setName("SuperDani");
+		driverRequestDto.setCellphone("569 12312312");
+		driverRequestDto.setEmail("driver1@elDriver.com");
+		driverRequestDto.setEnabled(true);
+		var driverResponseDto = driverService.save(driverRequestDto);
+		var driver = driversMapper.responseToDriver(driverResponseDto);
+
 
 		// DRIVER -> TRUCKS
 		var truck = new TruckRequestDto();

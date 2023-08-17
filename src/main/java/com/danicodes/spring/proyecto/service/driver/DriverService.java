@@ -1,6 +1,7 @@
 package com.danicodes.spring.proyecto.service.driver;
 
 import com.danicodes.spring.proyecto.domain.drivers.Driver;
+import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
 import com.danicodes.spring.proyecto.dto.driver.response.DriverResponseDto;
 
 import java.util.List;
@@ -13,9 +14,9 @@ public interface DriverService {
 
     DriverResponseDto findByUuid(UUID driverUuid);
 
-    DriverResponseDto save(Driver driver);
+    DriverResponseDto save(DriverRequestDto driver);
 
-    DriverResponseDto update(UUID driverUuid, Driver driver);
+    DriverResponseDto update(UUID driverUuid, DriverRequestDto driver);
 
     void delete(UUID driverUuid);
 }

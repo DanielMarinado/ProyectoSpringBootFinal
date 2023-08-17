@@ -14,4 +14,5 @@ public class DriverRequestDto {
     private String name;
     private String cellphone;
     private String email;
+    private Boolean enabled;
 }
