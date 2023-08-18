@@ -72,12 +72,22 @@ public class ProyectoApplication  implements CommandLineRunner {
 		driverRequestDto.setEmail("driver1@elDriver.com");
 		driverRequestDto.setEnabled(true);
 
+		//GUARDAR DRIVER
+		var driverResponseDto = driverService.save(driverRequestDto);
+
+		//ENCONTRAR DRIVER
+		var driver = driverService.findByName("SuperDani");
+
 		// INICIALIZAR TRUCK
 		var truckRequestDto = new TruckRequestDto();
 		truckRequestDto.setCode("TRUCK007");
 		truckRequestDto.setEnabled(true);
 
-		// INICIALIZAR PACKAGE
+		// RELACIONAR TRUCK CON DRIVER
+		//driverRequestDto.setTruck(truckRequestDto);
+		truckService.addToDriver(driversMapper.responseToDriver(driver), truckRequestDto);
+
+		// INICIALIZAR 2 PACKAGES
 		var aPackage = new Package();
 		aPackage.setCode("APACKAGE");
 		aPackage.setWeight(30.0);
@@ -88,42 +98,35 @@ public class ProyectoApplication  implements CommandLineRunner {
 		aPackage2.setWeight(60.0);
 		aPackage2.setSchedule(LocalDateTime.now());
 
-		// RELACIONAR TRUCK CON DRIVER
-		driverRequestDto.setTruck(truckRequestDto);
-
-		//GUARDAR DRIVER (Y TRUCK POR DEFECTO ASOCIADO)
-		var driverResponseDto = driverService.save(driverRequestDto);
-		var driver = driversMapper.responseToDriver(driverResponseDto);
-
-		//find truck...
+		//ENCONTRAR TRUCK
 		var aTruck = truckService.findByCode("TRUCK007");
 
-		// RELACIONAR TRUCK CON PACKAGES
+		// RELACIONAR TRUCK CON PACKAGES Y GUARDARLOS
 		truckService.addAllToTruck( trucksMapper.responseToTruck(aTruck), Arrays.asList(aPackage, aPackage2));
 
 
 
 
 		// INICIALIZAR PACKAGE
-		var myPackage = new Package();
+		/*var myPackage = new Package();
 		myPackage.setCode("PKG007");
 		myPackage.setWeight(15.0);
 		myPackage.setSchedule(LocalDateTime.now());
 		packageService.save(myPackage);
 
-		var packageRecent = packageService.findByCode("PKG007");
+		var packageRecent = packageService.findByCode("PKG007");*/
 
 		// PACKAGE-PRODUCTS
-		var packageProduct = new PackageProduct();
+		/*var packageProduct = new PackageProduct();
 		packageProduct.setCode("PKG-PRD007");
 		packageProduct.setWeight(30.0);
 		packageProduct.setSku("#1256");
 		packageProduct.setQuantity(2);
 		packageProduct.setMyPackage(packageRecent);
-		packageProductService.save(packageProduct);
+		packageProductService.save(packageProduct);*/
 
 
-		var daniService = driverService.findAll();
+		//var daniService = driverService.findAll();
 		var depurationPoint = "depurationPoint";
 
 	}
