@@ -5,6 +5,7 @@ import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
 import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.domain.trucks.Truck;
 import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
+import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
 import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
 import com.danicodes.spring.proyecto.mapper.drivers.DriversMapper;
 import com.danicodes.spring.proyecto.mapper.trucks.TrucksMapper;
@@ -19,6 +20,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 @SpringBootApplication
 public class ProyectoApplication  implements CommandLineRunner {
@@ -37,6 +41,8 @@ public class ProyectoApplication  implements CommandLineRunner {
 
 	@Autowired
 	private TruckService truckService;
+	@Autowired
+	TrucksMapper trucksMapper;
 
 	public static void main(String[] args) {
 
@@ -58,31 +64,51 @@ public class ProyectoApplication  implements CommandLineRunner {
 		// DRIVERS 1
 		//
 
+		// INICIALIZAR DRIVER
 		var driverRequestDto = new DriverRequestDto();
 		driverRequestDto.setCode("007");
 		driverRequestDto.setName("SuperDani");
 		driverRequestDto.setCellphone("569 12312312");
 		driverRequestDto.setEmail("driver1@elDriver.com");
 		driverRequestDto.setEnabled(true);
+
+		// INICIALIZAR TRUCK
+		var truckRequestDto = new TruckRequestDto();
+		truckRequestDto.setCode("TRUCK007");
+		truckRequestDto.setEnabled(true);
+
+		// INICIALIZAR PACKAGE
+		var aPackage = new Package();
+		aPackage.setCode("APACKAGE");
+		aPackage.setWeight(30.0);
+		aPackage.setSchedule(LocalDateTime.now());
+
+		var aPackage2 = new Package();
+		aPackage2.setCode("ANEWPACKAGE");
+		aPackage2.setWeight(60.0);
+		aPackage2.setSchedule(LocalDateTime.now());
+
+		// RELACIONAR TRUCK CON DRIVER
+		driverRequestDto.setTruck(truckRequestDto);
+
+		//GUARDAR DRIVER (Y TRUCK POR DEFECTO ASOCIADO)
 		var driverResponseDto = driverService.save(driverRequestDto);
 		var driver = driversMapper.responseToDriver(driverResponseDto);
 
+		//find truck...
+		var aTruck = truckService.findByCode("TRUCK007");
 
-		// DRIVER -> TRUCKS
-		var truck = new TruckRequestDto();
-		truck.setCode("TRUCK007");
-		truck.setEnabled(true);
-		truckService.addToDriver(driver, truck);
+		// RELACIONAR TRUCK CON PACKAGES
+		truckService.addAllToTruck( trucksMapper.responseToTruck(aTruck), Arrays.asList(aPackage, aPackage2));
 
-		// TRUCK -> PACKAGES
-		var truckRecent = truckService.findByCode("TRUCK007");
 
-		// PACKAGES
+
+
+		// INICIALIZAR PACKAGE
 		var myPackage = new Package();
 		myPackage.setCode("PKG007");
 		myPackage.setWeight(15.0);
 		myPackage.setSchedule(LocalDateTime.now());
-		//myPackage.setTruck(truckRecent);
 		packageService.save(myPackage);
 
 		var packageRecent = packageService.findByCode("PKG007");

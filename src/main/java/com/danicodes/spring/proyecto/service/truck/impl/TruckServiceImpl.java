@@ -1,7 +1,9 @@
 package com.danicodes.spring.proyecto.service.truck.impl;
 
+import com.danicodes.spring.proyecto.dao.packages.PackageRepositoryJpa;
 import com.danicodes.spring.proyecto.dao.trucks.TruckRepositoryJpa;
 import com.danicodes.spring.proyecto.domain.drivers.Driver;
+import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.domain.trucks.Truck;
 import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
 import com.danicodes.spring.proyecto.dto.truck.response.TruckResponseDto;
@@ -18,6 +20,7 @@ import java.util.UUID;
 public class TruckServiceImpl implements TruckService {
 
     private TruckRepositoryJpa truckRepositoryJpa;
+    private PackageRepositoryJpa packageRepositoryJpa;
     private TrucksMapper trucksMapper;
 
     @Override
@@ -42,8 +45,13 @@ public class TruckServiceImpl implements TruckService {
 
     @Override
     public TruckResponseDto save(TruckRequestDto request) {
-        var truck = trucksMapper.toTruck(request);
+        var truck = trucksMapper.requestToTruck(request);
         var truckSaved = truckRepositoryJpa.save(truck);
+
+        //if(Objects.nonNull(request.getPkg())){
+        //    packageService.addToTruck(truckSaved, request.getPkg());
+        //}
+
 
         return trucksMapper.toResponseDto(truckSaved);
     }
@@ -51,7 +59,7 @@ public class TruckServiceImpl implements TruckService {
     @Override
     public TruckResponseDto update(UUID truckUuid, TruckRequestDto request) {
         var truckFound = findById(truckUuid);
-        var truck = trucksMapper.toTruck(request);
+        var truck = trucksMapper.requestToTruck(request);
 
         trucksMapper.update(truck, truckFound);
 
@@ -75,5 +83,11 @@ public class TruckServiceImpl implements TruckService {
         var truckSaved = truckRepositoryJpa.save( request.toEntity(driver) );
 
         return trucksMapper.toResponseDto(truckSaved);
+    }
+
+    @Override
+    public void addAllToTruck(Truck truck, List<Package> packages) {
+        packages.forEach(pkg -> pkg.setTruck(truck));
+        packageRepositoryJpa.saveAll(packages);
     }
 }

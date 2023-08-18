@@ -6,10 +6,12 @@ import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
 import com.danicodes.spring.proyecto.dto.driver.response.DriverResponseDto;
 import com.danicodes.spring.proyecto.mapper.drivers.DriversMapper;
 import com.danicodes.spring.proyecto.service.driver.DriverService;
+import com.danicodes.spring.proyecto.service.truck.TruckService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Service
@@ -18,6 +20,8 @@ public class DriverServiceImpl implements DriverService {
 
     private DriverRepositoryJpa driverRepositoryJpa;
     private DriversMapper driverMapper;
+
+    private TruckService truckService;
 
     @Override
     public List<DriverResponseDto> findAll() {
@@ -45,9 +49,13 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public DriverResponseDto save(DriverRequestDto request) {
-        var driver = driverMapper.requestToDriver(request);
+        var driverSaved = driverRepositoryJpa.save(driverMapper.requestToDriver(request));
+
+        if(Objects.nonNull(request.getTruck())){
+            truckService.addToDriver(driverSaved, request.getTruck());
+        }
         return driverMapper
-                .toResponseDto(driverRepositoryJpa.save(driver));
+                .toResponseDto(driverSaved);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.danicodes.spring.proyecto.dto.driver.request;
 
+import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -15,4 +16,5 @@ public class DriverRequestDto {
     private String cellphone;
     private String email;
     private Boolean enabled;
+    private TruckRequestDto truck;
 }

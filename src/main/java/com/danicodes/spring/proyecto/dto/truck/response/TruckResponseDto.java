@@ -1,10 +1,12 @@
 package com.danicodes.spring.proyecto.dto.truck.response;
 
+import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.domain.trucks.Truck;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.List;
 import java.util.UUID;
 @Getter
 @Setter
@@ -15,4 +17,5 @@ public class TruckResponseDto {
     private String code;
 
     private Boolean enabled;
+    private List<Package> pkg;
 }

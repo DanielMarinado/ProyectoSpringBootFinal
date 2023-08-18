@@ -1,11 +1,13 @@
 package com.danicodes.spring.proyecto.service.packages;
 
 import com.danicodes.spring.proyecto.domain.packages.Package;
+import com.danicodes.spring.proyecto.dto.packages.response.PackageResponseDto;
+
 import java.util.List;
 import java.util.UUID;
 
 public interface PackageService {
-    List<Package> findAll();
+    List<PackageResponseDto> findAll();
 
     Package findByUuid(UUID packageUuid);
 

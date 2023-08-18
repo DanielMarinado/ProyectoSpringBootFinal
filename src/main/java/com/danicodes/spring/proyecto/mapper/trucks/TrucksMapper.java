@@ -18,6 +18,10 @@ public class TrucksMapper {
         if (Objects.nonNull(truckSource.getEnabled())) {
             truckTarget.setEnabled(truckSource.getEnabled());
         }
+
+        if (Objects.nonNull(truckSource.getMyPkg())) {
+            truckTarget.setMyPkg(truckSource.getMyPkg());
+        }
     }
     public TruckResponseDto toResponseDto(Truck truck) {
         if( truck == null){
@@ -38,6 +42,10 @@ public class TrucksMapper {
             truckResponseDto.setEnabled(truck.getEnabled());
         }
 
+//        if (Objects.nonNull(truck.getMyPkg())) {
+//            truckResponseDto.setPkg(truck.getMyPkg());
+//        }
+
         return truckResponseDto;
     }
 
@@ -56,10 +64,14 @@ public class TrucksMapper {
             truckRequestDto.setEnabled(truck.getEnabled());
         }
 
+//        if (Objects.nonNull(truck.getMyPkg())) {
+//            truckRequestDto.setPkg(truck.getMyPkg());
+//        }
+
         return truckRequestDto;
     }
 
-    public Truck toTruck(TruckRequestDto request) {
+    public Truck requestToTruck(TruckRequestDto request) {
 
         if (request == null) {
             return null;
@@ -74,6 +86,37 @@ public class TrucksMapper {
         if (Objects.nonNull(request.getEnabled())) {
             truck.setEnabled(request.getEnabled());
         }
+
+//        if (Objects.nonNull(request.getPkg())) {
+//            truck.setMyPkg(request.getPkg());
+//        }
+
+        return truck;
+    }
+
+    public Truck responseToTruck(TruckResponseDto response) {
+
+        if (response == null) {
+            return null;
+        }
+
+        var truck = new Truck();
+
+        if (Objects.nonNull(response.getUuid())) {
+            truck.setUuid(response.getUuid());
+        }
+
+        if (Objects.nonNull(response.getCode())) {
+            truck.setCode(response.getCode());
+        }
+
+        if (Objects.nonNull(response.getEnabled())) {
+            truck.setEnabled(response.getEnabled());
+        }
+
+//        if (Objects.nonNull(response.getPkg())) {
+//            truck.setMyPkg(response.getPkg());
+//        }
 
         return truck;
     }

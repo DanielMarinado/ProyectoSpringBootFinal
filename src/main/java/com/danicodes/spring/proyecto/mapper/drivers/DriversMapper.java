@@ -30,6 +30,10 @@ public class DriversMapper {
         if (Objects.nonNull(driverSource.getEnabled())) {
             driverTarget.setEnabled(driverSource.getEnabled());
         }
+
+        if (Objects.nonNull(driverSource.getTruck())) {
+            driverTarget.setTruck(driverSource.getTruck());
+        }
     }
     public DriverResponseDto toResponseDto(Driver driver) {
         if( driver == null){
@@ -56,6 +60,10 @@ public class DriversMapper {
 
         if (Objects.nonNull(driver.getEmail())) {
             driverResponseDto.setEmail(driver.getEmail());
+        }
+
+        if (Objects.nonNull(driver.getEnabled())) {
+            driverResponseDto.setEnabled(driver.getEnabled());
         }
 
         return driverResponseDto;
@@ -92,35 +100,37 @@ public class DriversMapper {
         return driver;
     }
 
-    public Driver responseToDriver(DriverResponseDto request) {
+    public Driver responseToDriver(DriverResponseDto response) {
 
-        if (request == null) {
+        if (response == null) {
             return null;
         }
 
         var driver = new Driver();
 
-        if (Objects.nonNull(request.getUuid())) {
-            driver.setUuid(request.getUuid());
+        if (Objects.nonNull(response.getUuid())) {
+            driver.setUuid(response.getUuid());
         }
 
-        if (Objects.nonNull(request.getCode())) {
-            driver.setCode(request.getCode());
+        if (Objects.nonNull(response.getCode())) {
+            driver.setCode(response.getCode());
         }
 
-        if (Objects.nonNull(request.getName())) {
-            driver.setName(request.getName());
+        if (Objects.nonNull(response.getName())) {
+            driver.setName(response.getName());
         }
 
-        if (Objects.nonNull(request.getCellphone())) {
-            driver.setCellphone(request.getCellphone());
+        if (Objects.nonNull(response.getCellphone())) {
+            driver.setCellphone(response.getCellphone());
         }
 
-        if (Objects.nonNull(request.getEmail())) {
-            driver.setEmail(request.getEmail());
+        if (Objects.nonNull(response.getEmail())) {
+            driver.setEmail(response.getEmail());
         }
 
-
+        if (Objects.nonNull(response.getEnabled())) {
+            driver.setEnabled(response.getEnabled());
+        }
 
         return driver;
     }

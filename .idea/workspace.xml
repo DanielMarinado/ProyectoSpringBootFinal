@@ -5,15 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48aafdce-34a0-46be-b0ba-cc0fbe437747" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/controller/packages/PackagesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/packages/request/PackageRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/packages/response/PackageResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/mapper/packages/PackagesMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/swagger/packages/PackagesSwagger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/ProyectoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/ProyectoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/controller/drivers/DriversController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/controller/drivers/DriversController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dao/packages/PackageRepositoryJpa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dao/packages/PackageRepositoryJpa.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/driver/request/DriverRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/driver/request/DriverRequestDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/driver/response/DriverResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/driver/response/DriverResponseDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/truck/request/TruckRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/truck/request/TruckRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/truck/response/TruckResponseDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/truck/response/TruckResponseDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/mapper/drivers/DriversMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/mapper/drivers/DriversMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/driver/DriverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/driver/DriverService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/mapper/trucks/TrucksMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/mapper/trucks/TrucksMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/driver/impl/DriverServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/driver/impl/DriverServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/swagger/drivers/DriversSwagger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/swagger/drivers/DriversSwagger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/packages/PackageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/packages/PackageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/packages/impl/PackageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/packages/impl/PackageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/truck/TruckService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/truck/TruckService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/truck/impl/TruckServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/truck/impl/TruckServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +101,8 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/danielmarinadosanhueza/Documents/Escalab/4 - Springboot/ProyectoSpringBootFinal/src/main/java/com/danicodes/spring/proyecto/dto/truck&quot;
+    &quot;last_opened_file_path&quot;: &quot;/Users/danielmarinadosanhueza/Documents/Escalab/4 - Springboot/ProyectoSpringBootFinal/src/main/java/com/danicodes/spring/proyecto/dto/truck&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
