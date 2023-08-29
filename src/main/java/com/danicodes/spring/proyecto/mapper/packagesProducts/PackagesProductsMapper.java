@@ -68,7 +68,7 @@ public class PackagesProductsMapper {
         return packageProductResponseDto;
     }
 
-    public PackageProduct requestToPackage(PackageProductRequestDto request) {
+    public PackageProduct requestToPackageProduct(PackageProductRequestDto request) {
 
         if (request == null) {
             return null;

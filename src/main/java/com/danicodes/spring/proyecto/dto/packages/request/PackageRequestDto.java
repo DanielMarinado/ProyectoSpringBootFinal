@@ -9,6 +9,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -19,5 +20,5 @@ public class PackageRequestDto {
     private Double weight;
     private LocalDateTime schedule;
     private StatusPackage status;
-    //private Set<PackageProduct> products;
+    private List<PackageProduct> products;
 }

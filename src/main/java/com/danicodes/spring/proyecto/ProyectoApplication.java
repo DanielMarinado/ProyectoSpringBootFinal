@@ -1,8 +1,9 @@
 package com.danicodes.spring.proyecto;
 
+import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
 import com.danicodes.spring.proyecto.domain.packages.Package;
-import com.danicodes.spring.proyecto.domain.packages.enums.StatusPackage;
 import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
+import com.danicodes.spring.proyecto.dto.package_product.request.PackageProductRequestDto;
 import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
 import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
 import com.danicodes.spring.proyecto.mapper.drivers.DriversMapper;
@@ -100,6 +101,25 @@ public class ProyectoApplication  implements CommandLineRunner {
 		// RELACIONAR TRUCK CON PACKAGES Y GUARDARLOS
 		truckService.addAllToTruck( trucksMapper.responseToTruck(aTruck), Arrays.asList(aPackage, aPackage2));
 
+
+		//NEW
+		// INICIALIZAR PACKAGES
+		var aPackageDTO = new PackageRequestDto();
+		aPackageDTO.setCode("APACKAGE22");
+		aPackageDTO.setWeight(320.0);
+		aPackageDTO.setSchedule(LocalDateTime.now());
+
+		// Crear package-Product
+		var aPackageProduct = new PackageProduct();
+		aPackageProduct.setCode("PackageProductENTITIII");
+		aPackageProduct.setWeight(30.30);
+		aPackageProduct.setSku("333333");
+		aPackageProduct.setQuantity(33);
+
+		aPackageDTO.setProducts(Arrays.asList(aPackageProduct));
+
+		packageService.save(aPackageDTO);
+		//END NEW
 
 		// truck con packages por default (Funcionando OK)
 //		var nuevoCamionRequest = new TruckRequestDto();

@@ -2,7 +2,9 @@ package com.danicodes.spring.proyecto.service.package_product.impl;
 
 import com.danicodes.spring.proyecto.dao.package_products.PackageProductRepositoryJpa;
 import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
-import com.danicodes.spring.proyecto.domain.packages.Package;
+import com.danicodes.spring.proyecto.dto.package_product.request.PackageProductRequestDto;
+import com.danicodes.spring.proyecto.dto.package_product.response.PackageProductResponseDto;
+import com.danicodes.spring.proyecto.mapper.packagesProducts.PackagesProductsMapper;
 import com.danicodes.spring.proyecto.service.package_product.PackageProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,38 +16,49 @@ import java.util.UUID;
 public class PackageProductServiceImpl implements PackageProductService {
 
     private PackageProductRepositoryJpa packageProductRepositoryJpa;
+    private PackagesProductsMapper packagesProductsMapper;
 
     @Override
-    public List<PackageProduct> findAll() {
-        return packageProductRepositoryJpa.findAll();
+    public List<PackageProductResponseDto> findAll() {
+        return packageProductRepositoryJpa
+                .findAll()
+                .stream()
+                .map(pkgProduct ->  packagesProductsMapper.toResponseDto(pkgProduct))
+                .toList();
     }
 
     @Override
-    public PackageProduct findByUuid(UUID packageProductUuid) {
-        return packageProductRepositoryJpa.findById(packageProductUuid).orElseThrow( () -> new IllegalStateException("") );
+    public PackageProductResponseDto findByUuid(UUID packageProductUuid) {
+        var myPackageProduct = findById(packageProductUuid);
+        return packagesProductsMapper.toResponseDto(myPackageProduct);
     }
 
     @Override
-    public PackageProduct save(PackageProduct packageProduct) {
-        return packageProductRepositoryJpa.save(packageProduct);
+    public PackageProductResponseDto save(PackageProductRequestDto request) {
+        var myPackageProduct = packagesProductsMapper.requestToPackageProduct(request);
+        var myPackageProductSaved =  packageProductRepositoryJpa.save(myPackageProduct);
+
+        return packagesProductsMapper.toResponseDto(myPackageProduct);
     }
 
     @Override
-    public PackageProduct update(UUID packageProductUuid, PackageProduct packageProduct) {
-        var searchPackageProduct = findByUuid(packageProductUuid);
+    public PackageProductResponseDto update(UUID packageProductUuid, PackageProductRequestDto request) {
+        var aPackageProductFound = findById(packageProductUuid);
+        var aPackageProduct =  packagesProductsMapper.requestToPackageProduct(request);
 
-        //
-        //
-        // FALTA EL MAPPER
-        //
-        //
+        packagesProductsMapper.update(aPackageProduct, aPackageProductFound);
 
-        return packageProductRepositoryJpa.save(packageProduct);
+        return packagesProductsMapper.toResponseDto(packageProductRepositoryJpa.save(aPackageProduct));
     }
 
-    @Override
-    public void addAllToPackage(Package myPkg, List<PackageProduct> pkgProducts) {
-        pkgProducts.forEach(pkgProduct -> pkgProduct.setMyPackage(myPkg));
-        packageProductRepositoryJpa.saveAll(pkgProducts);
+    private PackageProduct findById(UUID packageProductUuid) {
+        return packageProductRepositoryJpa.findById(packageProductUuid)
+                .orElseThrow(() -> new IllegalStateException(""));
     }
+
+//    @Override
+//    public void addAllToPackage(Package myPkg, List<PackageProduct> pkgProducts) {
+//        pkgProducts.forEach(pkgProduct -> pkgProduct.setMyPackage(myPkg));
+//        packageProductRepositoryJpa.saveAll(pkgProducts);
+//    }
 }
