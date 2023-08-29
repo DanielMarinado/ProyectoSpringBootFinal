@@ -8,11 +8,13 @@ import com.danicodes.spring.proyecto.domain.trucks.Truck;
 import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
 import com.danicodes.spring.proyecto.dto.truck.response.TruckResponseDto;
 import com.danicodes.spring.proyecto.mapper.trucks.TrucksMapper;
+import com.danicodes.spring.proyecto.service.packages.PackageService;
 import com.danicodes.spring.proyecto.service.truck.TruckService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Service
@@ -21,6 +23,7 @@ public class TruckServiceImpl implements TruckService {
 
     private TruckRepositoryJpa truckRepositoryJpa;
     private PackageRepositoryJpa packageRepositoryJpa;
+    private PackageService packageService;
     private TrucksMapper trucksMapper;
 
     @Override
@@ -48,10 +51,9 @@ public class TruckServiceImpl implements TruckService {
         var truck = trucksMapper.requestToTruck(request);
         var truckSaved = truckRepositoryJpa.save(truck);
 
-        //if(Objects.nonNull(request.getPkg())){
-        //    packageService.addToTruck(truckSaved, request.getPkg());
-        //}
-
+        if(Objects.nonNull(request.getPkg())){
+            addAllToTruck(truckSaved, request.getPkg());
+        }
 
         return trucksMapper.toResponseDto(truckSaved);
     }

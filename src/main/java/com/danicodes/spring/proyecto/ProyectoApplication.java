@@ -1,9 +1,7 @@
 package com.danicodes.spring.proyecto;
 
-import com.danicodes.spring.proyecto.domain.drivers.Driver;
-import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
 import com.danicodes.spring.proyecto.domain.packages.Package;
-import com.danicodes.spring.proyecto.domain.trucks.Truck;
+import com.danicodes.spring.proyecto.domain.packages.enums.StatusPackage;
 import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
 import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
 import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
@@ -21,8 +19,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 
 @SpringBootApplication
 public class ProyectoApplication  implements CommandLineRunner {
@@ -105,6 +101,21 @@ public class ProyectoApplication  implements CommandLineRunner {
 		truckService.addAllToTruck( trucksMapper.responseToTruck(aTruck), Arrays.asList(aPackage, aPackage2));
 
 
+		// truck con packages por default (Funcionando OK)
+//		var nuevoCamionRequest = new TruckRequestDto();
+//		nuevoCamionRequest.setCode("CAMIONCODE");
+//		nuevoCamionRequest.setEnabled(true);
+//
+//		var packageCamion = new Package();
+//		packageCamion.setCode("PACKAGE-CODE");
+//		packageCamion.setWeight(12.12);
+//		packageCamion.setStatus(StatusPackage.LOADED);
+//		packageCamion.setSchedule(LocalDateTime.now());
+//
+//		nuevoCamionRequest.setPkg(Arrays.asList(packageCamion));
+//
+//		truckService.save(nuevoCamionRequest);
+		//Fin truck con packages por default.
 
 
 		// INICIALIZAR PACKAGE

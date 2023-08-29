@@ -20,7 +20,6 @@ public class DriverServiceImpl implements DriverService {
 
     private DriverRepositoryJpa driverRepositoryJpa;
     private DriversMapper driverMapper;
-
     private TruckService truckService;
 
     @Override

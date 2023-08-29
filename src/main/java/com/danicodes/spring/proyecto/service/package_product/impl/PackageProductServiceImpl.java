@@ -2,6 +2,7 @@ package com.danicodes.spring.proyecto.service.package_product.impl;
 
 import com.danicodes.spring.proyecto.dao.package_products.PackageProductRepositoryJpa;
 import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
+import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.service.package_product.PackageProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -40,5 +41,11 @@ public class PackageProductServiceImpl implements PackageProductService {
         //
 
         return packageProductRepositoryJpa.save(packageProduct);
+    }
+
+    @Override
+    public void addAllToPackage(Package myPkg, List<PackageProduct> pkgProducts) {
+        pkgProducts.forEach(pkgProduct -> pkgProduct.setMyPackage(myPkg));
+        packageProductRepositoryJpa.saveAll(pkgProducts);
     }
 }
