@@ -1,6 +1,5 @@
 package com.danicodes.spring.proyecto.controller.trucks;
 
-import com.danicodes.spring.proyecto.domain.trucks.Truck;
 import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
 import com.danicodes.spring.proyecto.dto.truck.response.TruckResponseDto;
 import com.danicodes.spring.proyecto.service.truck.TruckService;

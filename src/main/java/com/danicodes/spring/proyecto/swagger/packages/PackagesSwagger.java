@@ -1,7 +1,6 @@
 package com.danicodes.spring.proyecto.swagger.packages;
 
 import com.danicodes.spring.proyecto.domain.packages.Package;
-import com.danicodes.spring.proyecto.dto.driver.response.DriverResponseDto;
 import com.danicodes.spring.proyecto.dto.packages.response.PackageResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;

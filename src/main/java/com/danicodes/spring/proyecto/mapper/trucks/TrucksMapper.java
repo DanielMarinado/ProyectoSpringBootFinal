@@ -87,10 +87,6 @@ public class TrucksMapper {
             truck.setEnabled(request.getEnabled());
         }
 
-//        if (Objects.nonNull(request.getPkg())) {
-//            truck.setMyPkg(request.getPkg());
-//        }
-
         return truck;
     }
 
@@ -113,10 +109,6 @@ public class TrucksMapper {
         if (Objects.nonNull(response.getEnabled())) {
             truck.setEnabled(response.getEnabled());
         }
-
-//        if (Objects.nonNull(response.getPkg())) {
-//            truck.setMyPkg(response.getPkg());
-//        }
 
         return truck;
     }

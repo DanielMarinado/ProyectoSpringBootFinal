@@ -3,7 +3,6 @@ package com.danicodes.spring.proyecto.service.truck;
 import com.danicodes.spring.proyecto.domain.drivers.Driver;
 import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.domain.trucks.Truck;
-import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
 import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
 import com.danicodes.spring.proyecto.dto.truck.response.TruckResponseDto;
 

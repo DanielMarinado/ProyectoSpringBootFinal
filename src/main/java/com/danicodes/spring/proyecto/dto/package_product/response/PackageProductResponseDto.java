@@ -1,6 +1,5 @@
 package com.danicodes.spring.proyecto.dto.package_product.response;
 
-import com.danicodes.spring.proyecto.domain.packages.enums.StatusPackage;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

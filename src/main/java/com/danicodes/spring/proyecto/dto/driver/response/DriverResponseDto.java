@@ -1,6 +1,5 @@
 package com.danicodes.spring.proyecto.dto.driver.response;
 
-import com.danicodes.spring.proyecto.domain.drivers.Driver;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;

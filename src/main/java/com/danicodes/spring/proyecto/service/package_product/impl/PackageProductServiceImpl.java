@@ -38,7 +38,7 @@ public class PackageProductServiceImpl implements PackageProductService {
         var myPackageProduct = packagesProductsMapper.requestToPackageProduct(request);
         var myPackageProductSaved =  packageProductRepositoryJpa.save(myPackageProduct);
 
-        return packagesProductsMapper.toResponseDto(myPackageProduct);
+        return packagesProductsMapper.toResponseDto(myPackageProductSaved);
     }
 
     @Override
@@ -55,10 +55,4 @@ public class PackageProductServiceImpl implements PackageProductService {
         return packageProductRepositoryJpa.findById(packageProductUuid)
                 .orElseThrow(() -> new IllegalStateException(""));
     }
-
-//    @Override
-//    public void addAllToPackage(Package myPkg, List<PackageProduct> pkgProducts) {
-//        pkgProducts.forEach(pkgProduct -> pkgProduct.setMyPackage(myPkg));
-//        packageProductRepositoryJpa.saveAll(pkgProducts);
-//    }
 }

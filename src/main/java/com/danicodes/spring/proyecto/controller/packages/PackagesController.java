@@ -1,6 +1,5 @@
 package com.danicodes.spring.proyecto.controller.packages;
 
-import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.dto.packages.response.PackageResponseDto;
 import com.danicodes.spring.proyecto.service.packages.PackageService;
 import com.danicodes.spring.proyecto.swagger.packages.PackagesSwagger;

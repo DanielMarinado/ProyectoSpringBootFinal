@@ -1,11 +1,8 @@
 package com.danicodes.spring.proyecto.mapper.packagesProducts;
 
 import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
-import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.dto.package_product.request.PackageProductRequestDto;
 import com.danicodes.spring.proyecto.dto.package_product.response.PackageProductResponseDto;
-import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
-import com.danicodes.spring.proyecto.dto.packages.response.PackageResponseDto;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;

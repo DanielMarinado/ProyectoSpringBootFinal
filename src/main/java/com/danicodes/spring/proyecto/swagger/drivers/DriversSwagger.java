@@ -1,6 +1,5 @@
 package com.danicodes.spring.proyecto.swagger.drivers;
 
-import com.danicodes.spring.proyecto.domain.drivers.Driver;
 import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
 import com.danicodes.spring.proyecto.dto.driver.response.DriverResponseDto;
 import io.swagger.v3.oas.annotations.Operation;

@@ -1,6 +1,5 @@
 package com.danicodes.spring.proyecto.controller.drivers;
 
-import com.danicodes.spring.proyecto.domain.drivers.Driver;
 import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
 import com.danicodes.spring.proyecto.dto.driver.response.DriverResponseDto;
 import com.danicodes.spring.proyecto.service.driver.DriverService;

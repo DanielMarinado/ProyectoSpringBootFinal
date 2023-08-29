@@ -1,7 +1,5 @@
 package com.danicodes.spring.proyecto.swagger.trucks;
 
-import com.danicodes.spring.proyecto.domain.trucks.Truck;
-import com.danicodes.spring.proyecto.dto.driver.response.DriverResponseDto;
 import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
 import com.danicodes.spring.proyecto.dto.truck.response.TruckResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,9 +8,6 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.UUID;

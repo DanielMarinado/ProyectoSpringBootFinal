@@ -1,7 +1,6 @@
 package com.danicodes.spring.proyecto.dao.drivers;
 
 import com.danicodes.spring.proyecto.domain.drivers.Driver;
-import com.danicodes.spring.proyecto.domain.trucks.Truck;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
