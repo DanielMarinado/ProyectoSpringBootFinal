@@ -5,13 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48aafdce-34a0-46be-b0ba-cc0fbe437747" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/package_product/request/PackageProductRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/package_product/response/PackageProductResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/mapper/packagesProducts/PackagesProductsMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/ProyectoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/ProyectoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/driver/impl/DriverServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/driver/impl/DriverServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/package_product/PackageProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/package_product/PackageProductService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/package_product/impl/PackageProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/package_product/impl/PackageProductServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/packages/PackageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/packages/PackageService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/packages/impl/PackageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/packages/impl/PackageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/truck/impl/TruckServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/truck/impl/TruckServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +110,9 @@
       <recent name="com.danicodes.spring.proyecto.service.driver.impl" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.danicodes.spring.proyecto.mapper.packagesProducts" />
+      <recent name="com.danicodes.spring.proyecto.dto.package_product.response" />
+      <recent name="com.danicodes.spring.proyecto.dto.package_product.request" />
       <recent name="com.danicodes.spring.proyecto.config" />
       <recent name="com.danicodes.spring.proyecto.dto.driver.request" />
     </key>

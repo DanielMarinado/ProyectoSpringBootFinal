@@ -29,30 +29,44 @@ public class PackageServiceImpl implements PackageService {
     }
 
     @Override
-    public Package findByUuid(UUID packageUuid) {
-        return packageRepositoryJpa.findById(packageUuid).orElseThrow( () -> new IllegalStateException("") );
+    public PackageResponseDto findByUuid(UUID packageUuid) {
+        var myPackage = packageRepositoryJpa.findById(packageUuid).orElseThrow( () -> new IllegalStateException("") );
+        return packagesMapper.toResponseDto(myPackage);
     }
 
     @Override
-    public Package findByCode(String code) {
-        return packageRepositoryJpa.findByCode(code).orElseThrow( ()-> new IllegalStateException("") );
+    public PackageResponseDto findByCode(String code) {
+        var myPackage = packageRepositoryJpa.findByCode(code).orElseThrow( ()-> new IllegalStateException("") );
+        return packagesMapper.toResponseDto(myPackage);
     }
 
     @Override
-    public Package save(Package myPackage) {
-        return packageRepositoryJpa.save(myPackage);
+    public PackageResponseDto save(PackageRequestDto myPackage) {
+        var aPackage = packagesMapper.requestToPackage(myPackage);
+        var aPackageSaved = packageRepositoryJpa.save(aPackage);
+
+        /*
+        if(Objects.nonNull(request.getPackagesProductsssss())){
+            addAllToPackage(aPackageSaved, request.getPackagesProductsssss());
+        }
+        */
+
+        return packagesMapper.toResponseDto(aPackageSaved);
     }
 
     @Override
-    public Package update(UUID packageUuid, Package myPackage) {
-        var searchPackage = findByUuid(packageUuid);
+    public PackageResponseDto update(UUID packageUuid, PackageRequestDto myPackage) {
+        var aPackageFound = findById(packageUuid);
+        var aPackage = packagesMapper.requestToPackage(myPackage);
 
-        //
-        //
-        // FALTA EL MAPPER
-        //
-        //
-        return packageRepositoryJpa.save(myPackage);
+        packagesMapper.update(aPackage, aPackageFound);
+
+        return packagesMapper.toResponseDto(packageRepositoryJpa.save(aPackage));
+    }
+
+    private Package findById(UUID packageUuid) {
+        return packageRepositoryJpa.findById(packageUuid)
+                .orElseThrow(() -> new IllegalStateException(""));
     }
 
 

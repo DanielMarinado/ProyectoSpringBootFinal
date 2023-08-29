@@ -1,6 +1,7 @@
 package com.danicodes.spring.proyecto.service.packages;
 
 import com.danicodes.spring.proyecto.domain.packages.Package;
+import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
 import com.danicodes.spring.proyecto.dto.packages.response.PackageResponseDto;
 
 import java.util.List;
@@ -9,11 +10,11 @@ import java.util.UUID;
 public interface PackageService {
     List<PackageResponseDto> findAll();
 
-    Package findByUuid(UUID packageUuid);
+    PackageResponseDto findByUuid(UUID packageUuid);
 
-    Package findByCode(String code);
+    PackageResponseDto findByCode(String code);
 
-    Package save(Package myPackage);
+    PackageResponseDto save(PackageRequestDto myPackage);
 
-    Package update(UUID packageUuid, Package myPackage);
+    PackageResponseDto update(UUID packageUuid, PackageRequestDto myPackage);
 }
