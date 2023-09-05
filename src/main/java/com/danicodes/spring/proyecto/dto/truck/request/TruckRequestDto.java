@@ -15,7 +15,7 @@ public class TruckRequestDto {
     private String code;
 
     private Boolean enabled;
-    private List<Package> pkg;
+    //private List<Package> pkg;
 
     public Truck toEntity(Driver driver) {
 

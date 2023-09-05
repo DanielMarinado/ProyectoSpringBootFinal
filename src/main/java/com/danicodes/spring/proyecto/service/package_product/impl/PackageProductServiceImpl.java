@@ -2,6 +2,7 @@ package com.danicodes.spring.proyecto.service.package_product.impl;
 
 import com.danicodes.spring.proyecto.dao.package_products.PackageProductRepositoryJpa;
 import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
+import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.dto.package_product.request.PackageProductRequestDto;
 import com.danicodes.spring.proyecto.dto.package_product.response.PackageProductResponseDto;
 import com.danicodes.spring.proyecto.mapper.packagesProducts.PackagesProductsMapper;
@@ -18,6 +19,8 @@ public class PackageProductServiceImpl implements PackageProductService {
     private PackageProductRepositoryJpa packageProductRepositoryJpa;
     private PackagesProductsMapper packagesProductsMapper;
 
+    private PackageProductRepositoryJpa productRepositoryJpa;
+
     @Override
     public List<PackageProductResponseDto> findAll() {
         return packageProductRepositoryJpa
@@ -25,6 +28,11 @@ public class PackageProductServiceImpl implements PackageProductService {
                 .stream()
                 .map(pkgProduct ->  packagesProductsMapper.toResponseDto(pkgProduct))
                 .toList();
+    }
+
+    @Override
+    public List<PackageProduct> findAllPackageProduct() {
+        return packageProductRepositoryJpa.findAll().stream().toList();
     }
 
     @Override
@@ -54,5 +62,11 @@ public class PackageProductServiceImpl implements PackageProductService {
     private PackageProduct findById(UUID packageProductUuid) {
         return packageProductRepositoryJpa.findById(packageProductUuid)
                 .orElseThrow(() -> new IllegalStateException(""));
+    }
+
+    @Override
+    public void addAllToPackage(Package myPkg, List<PackageProduct> products){
+        products.forEach(product -> product.setMyPackage(myPkg));
+        productRepositoryJpa.saveAll(products);
     }
 }

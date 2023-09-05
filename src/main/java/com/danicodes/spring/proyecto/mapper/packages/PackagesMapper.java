@@ -1,11 +1,15 @@
 package com.danicodes.spring.proyecto.mapper.packages;
 
+import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
 import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
 import com.danicodes.spring.proyecto.dto.packages.response.PackageResponseDto;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Component
 public class PackagesMapper {
@@ -34,6 +38,10 @@ public class PackagesMapper {
         if (Objects.nonNull(pkgSource.getDeleted_at())) {
             pkgTarget.setDeleted_at(pkgSource.getDeleted_at());
         }
+
+        //if (Objects.nonNull(pkgSource.getPackageProducts())) {
+            //pkgTarget.setPackageProducts(pkgSource.getPackageProducts());
+        //}
     }
     public PackageResponseDto toResponseDto(Package pkg) {
         if( pkg == null){
@@ -62,6 +70,10 @@ public class PackagesMapper {
             packageResponseDto.setStatus(pkg.getStatus());
         }
 
+        //if (Objects.nonNull(pkg.getPackageProducts())) {
+            //packageResponseDto.setProducts(pkg.getPackageProducts().stream().toList());
+        //}
+
         return packageResponseDto;
     }
 
@@ -88,6 +100,10 @@ public class PackagesMapper {
         if (Objects.nonNull(request.getStatus())) {
             aPackage.setStatus(request.getStatus());
         }
+
+        //if (request.getProducts().size() > 0 ) {
+            //aPackage.setPackageProducts(request.getProducts().stream().collect(Collectors.toSet()));
+        //}
 
         return aPackage;
     }
@@ -119,6 +135,10 @@ public class PackagesMapper {
         if (Objects.nonNull(response.getStatus())) {
             aPackage.setStatus(response.getStatus());
         }
+
+        //if (response.getProducts().size() > 0 ) {
+            //aPackage.setPackageProducts(response.getProducts().stream().collect(Collectors.toSet()));
+        //}
 
         return aPackage;
     }

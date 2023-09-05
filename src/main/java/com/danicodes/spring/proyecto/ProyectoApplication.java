@@ -7,6 +7,7 @@ import com.danicodes.spring.proyecto.dto.package_product.request.PackageProductR
 import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
 import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
 import com.danicodes.spring.proyecto.mapper.drivers.DriversMapper;
+import com.danicodes.spring.proyecto.mapper.packages.PackagesMapper;
 import com.danicodes.spring.proyecto.mapper.trucks.TrucksMapper;
 import com.danicodes.spring.proyecto.service.driver.DriverService;
 import com.danicodes.spring.proyecto.service.package_product.PackageProductService;
@@ -20,6 +21,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @SpringBootApplication
 public class ProyectoApplication  implements CommandLineRunner {
@@ -85,21 +88,21 @@ public class ProyectoApplication  implements CommandLineRunner {
 		truckService.addToDriver(driversMapper.responseToDriver(driver), truckRequestDto);
 
 		// INICIALIZAR 2 PACKAGES
-		var aPackage = new Package();
-		aPackage.setCode("APACKAGE");
-		aPackage.setWeight(30.0);
-		aPackage.setSchedule(LocalDateTime.now());
+		//var aPackage = new Package();
+		//aPackage.setCode("APACKAGE");
+		//aPackage.setWeight(30.0);
+		//aPackage.setSchedule(LocalDateTime.now());
 
-		var aPackage2 = new Package();
-		aPackage2.setCode("ANEWPACKAGE");
-		aPackage2.setWeight(60.0);
-		aPackage2.setSchedule(LocalDateTime.now());
+		//var aPackage2 = new Package();
+		//aPackage2.setCode("ANEWPACKAGE");
+		//aPackage2.setWeight(60.0);
+		//aPackage2.setSchedule(LocalDateTime.now());
 
 		//ENCONTRAR TRUCK
 		var aTruck = truckService.findByCode("TRUCK007");
 
 		// RELACIONAR TRUCK CON PACKAGES Y GUARDARLOS
-		truckService.addAllToTruck( trucksMapper.responseToTruck(aTruck), Arrays.asList(aPackage, aPackage2));
+		//truckService.addAllToTruck( trucksMapper.responseToTruck(aTruck), Arrays.asList(aPackage, aPackage2));
 
 
 		//NEW
@@ -116,9 +119,23 @@ public class ProyectoApplication  implements CommandLineRunner {
 		aPackageProduct.setSku("333333");
 		aPackageProduct.setQuantity(33);
 
-		aPackageDTO.setProducts(Arrays.asList(aPackageProduct));
+
+
+		//aPackageDTO.setProducts(Stream.of(aPackageProduct).collect(Collectors.toSet()));
+		//aPackageDTO.setProducts(Arrays.asList(aPackageProduct));
+
+		//packageService.save(aPackageDTO);
 
 		packageService.save(aPackageDTO);
+
+
+		var aPackageFound =packageService.findAll().get(0);
+		var packageMapper = new PackagesMapper();
+		packageProductService.addAllToPackage(packageMapper.responseToPackage(aPackageFound), Arrays.asList(aPackageProduct));
+		//packageService.addAllToPackage(packageMapper.responseToPackage(aPackageFound), Stream.of(aPackageProduct).collect(Collectors.toSet()));
+
+
+
 		//END NEW
 
 		// truck con packages por default (Funcionando OK)

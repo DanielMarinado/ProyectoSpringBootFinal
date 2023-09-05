@@ -14,5 +14,5 @@ public class DriverRequestDto {
     private String cellphone;
     private String email;
     private Boolean enabled;
-    private TruckRequestDto truck;
+    //private TruckRequestDto truck;
 }

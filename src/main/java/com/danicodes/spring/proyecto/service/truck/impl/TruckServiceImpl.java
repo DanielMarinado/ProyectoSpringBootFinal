@@ -51,9 +51,9 @@ public class TruckServiceImpl implements TruckService {
         var truck = trucksMapper.requestToTruck(request);
         var truckSaved = truckRepositoryJpa.save(truck);
 
-        if(Objects.nonNull(request.getPkg())){
-            addAllToTruck(truckSaved, request.getPkg());
-        }
+        //if(Objects.nonNull(request.getPkg())){
+        //    addAllToTruck(truckSaved, request.getPkg());
+        //}
 
         return trucksMapper.toResponseDto(truckSaved);
     }

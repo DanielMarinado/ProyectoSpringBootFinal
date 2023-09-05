@@ -16,5 +16,5 @@ public class TruckResponseDto {
     private String code;
 
     private Boolean enabled;
-    private List<Package> pkg;
+    //private List<Package> pkg;
 }

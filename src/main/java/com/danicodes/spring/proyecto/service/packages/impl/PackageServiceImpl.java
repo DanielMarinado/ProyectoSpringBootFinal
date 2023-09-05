@@ -2,7 +2,6 @@ package com.danicodes.spring.proyecto.service.packages.impl;
 
 import com.danicodes.spring.proyecto.dao.package_products.PackageProductRepositoryJpa;
 import com.danicodes.spring.proyecto.dao.packages.PackageRepositoryJpa;
-import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
 import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
 import com.danicodes.spring.proyecto.dto.packages.response.PackageResponseDto;
@@ -12,7 +11,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 
 @Service
@@ -22,7 +20,6 @@ public class PackageServiceImpl implements PackageService {
     private PackageRepositoryJpa packageRepositoryJpa;
     private PackagesMapper packagesMapper;
 
-    private PackageProductRepositoryJpa productRepositoryJpa;
 
     @Override
     public List<PackageResponseDto> findAll() {
@@ -34,8 +31,14 @@ public class PackageServiceImpl implements PackageService {
     }
 
     @Override
+    public List<Package> findAllPackage() {
+        return packageRepositoryJpa.findAll().stream().toList();
+    }
+
+    @Override
     public PackageResponseDto findByUuid(UUID packageUuid) {
         var myPackage = findById(packageUuid);
+      //  var productos = myPackage.getPackageProducts();
         return packagesMapper.toResponseDto(myPackage);
     }
 
@@ -51,9 +54,9 @@ public class PackageServiceImpl implements PackageService {
         var aPackageSaved = packageRepositoryJpa.save(aPackage);
 
 
-        if(Objects.nonNull(request.getProducts())) {
-            addAllToPackage(aPackageSaved, request.getProducts());
-        }
+        //if(Objects.nonNull(request.getProducts())) {
+        //    addAllToPackage(aPackageSaved, request.getProducts());
+        //}
 
         return packagesMapper.toResponseDto(aPackageSaved);
     }
@@ -73,9 +76,11 @@ public class PackageServiceImpl implements PackageService {
                 .orElseThrow(() -> new IllegalStateException(""));
     }
 
+
+
     @Override
-    public void addAllToPackage(Package myPkg, List<PackageProduct> products){
-        products.forEach(product -> product.setMyPackage(myPkg));
-        productRepositoryJpa.saveAll(products);
+    public void delete(UUID uuid) {
+        var packageFound = findById(uuid);
+        packageRepositoryJpa.delete(packageFound);
     }
 }

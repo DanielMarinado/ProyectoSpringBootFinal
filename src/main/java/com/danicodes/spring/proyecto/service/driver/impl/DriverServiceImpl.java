@@ -50,9 +50,9 @@ public class DriverServiceImpl implements DriverService {
     public DriverResponseDto save(DriverRequestDto request) {
         var driverSaved = driverRepositoryJpa.save(driverMapper.requestToDriver(request));
 
-        if(Objects.nonNull(request.getTruck())){
-            truckService.addToDriver(driverSaved, request.getTruck());
-        }
+        //if(Objects.nonNull(request.getTruck())){
+        //    truckService.addToDriver(driverSaved, request.getTruck());
+        //}
         return driverMapper
                 .toResponseDto(driverSaved);
     }
