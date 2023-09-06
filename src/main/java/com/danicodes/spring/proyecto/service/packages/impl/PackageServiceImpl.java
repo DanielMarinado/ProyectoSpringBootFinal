@@ -3,6 +3,7 @@ package com.danicodes.spring.proyecto.service.packages.impl;
 import com.danicodes.spring.proyecto.dao.package_products.PackageProductRepositoryJpa;
 import com.danicodes.spring.proyecto.dao.packages.PackageRepositoryJpa;
 import com.danicodes.spring.proyecto.domain.packages.Package;
+import com.danicodes.spring.proyecto.domain.packages.enums.StatusPackage;
 import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
 import com.danicodes.spring.proyecto.dto.packages.response.PackageResponseDto;
 import com.danicodes.spring.proyecto.mapper.packages.PackagesMapper;
@@ -72,6 +73,14 @@ public class PackageServiceImpl implements PackageService {
         packagesMapper.update(aPackage, aPackageFound);
 
         return packagesMapper.toResponseDto(packageRepositoryJpa.save(aPackage));
+    }
+
+    @Override
+    public PackageResponseDto updateStatus(UUID packageUuid, PackageResponseDto myPackage) {
+        var aPackageFound = findById(packageUuid);
+        aPackageFound.setStatus(myPackage.getStatus());
+
+        return packagesMapper.toResponseDto(packageRepositoryJpa.save(aPackageFound));
     }
 
     private Package findById(UUID packageUuid) {

@@ -2,6 +2,7 @@ package com.danicodes.spring.proyecto.service.packages;
 
 import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
 import com.danicodes.spring.proyecto.domain.packages.Package;
+import com.danicodes.spring.proyecto.domain.packages.enums.StatusPackage;
 import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
 import com.danicodes.spring.proyecto.dto.packages.response.PackageResponseDto;
 import org.springframework.data.jpa.repository.Query;
@@ -23,5 +24,6 @@ public interface PackageService {
 
     PackageResponseDto update(UUID packageUuid, PackageRequestDto myPackage);
 
+    PackageResponseDto updateStatus(UUID packageUuid, PackageResponseDto status);
     void delete(UUID uuid);
 }

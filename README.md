@@ -117,6 +117,13 @@ En la presente documentación, se describen los puntos a evaluar y los endpoints
 
 ## [Tarea 5] Exponer endpoint que permita cambiar el estado de un paquete.
 ```
+[PATCH] localhost:8090/api/v1/packages-products/{uuid}
+
+ Objeto de ejemplo (aunque se le envíen mas parámetros, sólo actualizará el status):
+ {
+    "status": "CANCELED"
+ }
+
 ```
 
 ## [Tarea 6] Adicionar Swagger a un controller.

@@ -2,6 +2,7 @@ package com.danicodes.spring.proyecto.controller.packages;
 
 import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
 import com.danicodes.spring.proyecto.domain.packages.Package;
+import com.danicodes.spring.proyecto.domain.packages.enums.StatusPackage;
 import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
 import com.danicodes.spring.proyecto.dto.packages.response.PackageResponseDto;
 import com.danicodes.spring.proyecto.service.package_product.PackageProductService;
@@ -73,5 +74,10 @@ public class PackagesProductsController implements PackagesSwagger {
 
         if(error) return ResponseEntity.status(HttpStatus.CONFLICT).body("El producto no se puede eliminar, ya que el paquete que lo contiene es distinto a LOADED");
         else return ResponseEntity.status(HttpStatus.OK).body("Se ha eliminado el registro.");
+    }
+
+    @PatchMapping("/{uuid}")
+    public PackageResponseDto updateStatus(@PathVariable UUID uuid, @RequestBody PackageResponseDto packageResponseDto){
+        return packageService.updateStatus(uuid, packageResponseDto);
     }
 }
