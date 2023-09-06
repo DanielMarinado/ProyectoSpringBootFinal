@@ -6,11 +6,13 @@ import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
 import com.danicodes.spring.proyecto.dto.packages.response.PackageResponseDto;
 import com.danicodes.spring.proyecto.mapper.packages.PackagesMapper;
+import com.danicodes.spring.proyecto.service.package_product.PackageProductService;
 import com.danicodes.spring.proyecto.service.packages.PackageService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 @Service
@@ -18,6 +20,7 @@ import java.util.UUID;
 public class PackageServiceImpl implements PackageService {
 
     private PackageRepositoryJpa packageRepositoryJpa;
+    private PackageProductService packageProductService;
     private PackagesMapper packagesMapper;
 
 
@@ -54,9 +57,9 @@ public class PackageServiceImpl implements PackageService {
         var aPackageSaved = packageRepositoryJpa.save(aPackage);
 
 
-        //if(Objects.nonNull(request.getProducts())) {
-        //    addAllToPackage(aPackageSaved, request.getProducts());
-        //}
+        if(Objects.nonNull(request.getProducts())) {
+            packageProductService.addAllToPackage(aPackageSaved, request.getProducts());
+        }
 
         return packagesMapper.toResponseDto(aPackageSaved);
     }
