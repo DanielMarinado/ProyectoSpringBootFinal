@@ -111,7 +111,14 @@ En la presente documentación, se describen los puntos a evaluar y los endpoints
 ```
 
 ## [Tarea 4] Exponer endpoint que permita eliminar productos de un paquete si y solo si el paquete se encuentre en estado LOADED.
+```
+[DELETE] localhost:8090/api/v1/packages-products/product/{uuid}
+```
+
 ## [Tarea 5] Exponer endpoint que permita cambiar el estado de un paquete.
+```
+```
+
 ## [Tarea 6] Adicionar Swagger a un controller.
 ```
   // Para evaluar, favor revisar API Trucks y Drivers, son las api mas completas. 

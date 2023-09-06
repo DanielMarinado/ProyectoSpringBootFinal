@@ -10,6 +10,8 @@ import com.danicodes.spring.proyecto.swagger.packages.PackagesSwagger;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -63,5 +65,13 @@ public class PackagesProductsController implements PackagesSwagger {
     @DeleteMapping("/{uuid}")
     public void delete(@PathVariable UUID uuid) {
         packageService.delete(uuid);
+    }
+
+    @DeleteMapping("/product/{uuid}")
+    public ResponseEntity<String> deleteProduct(@PathVariable UUID uuid) {
+        boolean error = packageProductService.delete(uuid);
+
+        if(error) return ResponseEntity.status(HttpStatus.CONFLICT).body("El producto no se puede eliminar, ya que el paquete que lo contiene es distinto a LOADED");
+        else return ResponseEntity.status(HttpStatus.OK).body("Se ha eliminado el registro.");
     }
 }

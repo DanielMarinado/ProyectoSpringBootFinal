@@ -19,4 +19,6 @@ public interface PackageProductService {
 
     void addAllToPackage(Package myPkg, List<PackageProduct> products);
 
+    boolean delete(UUID packageProductUuid);
+
 }

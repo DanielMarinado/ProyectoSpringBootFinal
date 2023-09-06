@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="48aafdce-34a0-46be-b0ba-cc0fbe437747" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HELP.md" beforeDir="false" afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/controller/packages/PackagesProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/controller/packages/PackagesProductsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/package_product/PackageProductService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/package_product/PackageProductService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/package_product/impl/PackageProductServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/package_product/impl/PackageProductServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,12 +173,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/controller/packages/PackagesProductsController.java</url>
-          <line>50</line>
+          <line>52</line>
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/controller/packages/PackagesProductsController.java</url>
-          <line>49</line>
+          <line>51</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
