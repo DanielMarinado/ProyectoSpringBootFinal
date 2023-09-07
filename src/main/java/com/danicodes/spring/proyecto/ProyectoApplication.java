@@ -1,9 +1,7 @@
 package com.danicodes.spring.proyecto;
 
 import com.danicodes.spring.proyecto.domain.package_products.PackageProduct;
-import com.danicodes.spring.proyecto.domain.packages.Package;
 import com.danicodes.spring.proyecto.dto.driver.request.DriverRequestDto;
-import com.danicodes.spring.proyecto.dto.package_product.request.PackageProductRequestDto;
 import com.danicodes.spring.proyecto.dto.packages.request.PackageRequestDto;
 import com.danicodes.spring.proyecto.dto.truck.request.TruckRequestDto;
 import com.danicodes.spring.proyecto.mapper.drivers.DriversMapper;
@@ -21,8 +19,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDateTime;
 import java.util.Arrays;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @SpringBootApplication
 public class ProyectoApplication  implements CommandLineRunner {
