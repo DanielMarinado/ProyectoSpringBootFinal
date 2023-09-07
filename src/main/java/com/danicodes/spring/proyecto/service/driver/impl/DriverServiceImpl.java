@@ -9,10 +9,12 @@ import com.danicodes.spring.proyecto.dto.driver.response.DriverResponseDto;
 import com.danicodes.spring.proyecto.mapper.drivers.DriversMapper;
 import com.danicodes.spring.proyecto.mapper.packages.PackagesMapper;
 import com.danicodes.spring.proyecto.service.driver.DriverService;
+import com.danicodes.spring.proyecto.service.packages.PackageService;
 import com.danicodes.spring.proyecto.service.truck.TruckService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,7 +24,7 @@ public class DriverServiceImpl implements DriverService {
 
     private DriverRepositoryJpa driverRepositoryJpa;
     private DriversMapper driverMapper;
-    private PackagesMapper packagesMapper;
+    private PackageService packageService;
 
     @Override
     public List<DriverResponseDto> findAll() {
@@ -80,31 +82,32 @@ public class DriverServiceImpl implements DriverService {
 
     public String managedPackages(UUID driverUUID){
         var driver = findById(driverUUID);
-        //var truck
-        //var truck = driver.getTruck();
-        //var packages = truck.getMyPkg();
+        var truck = driver.getTruck();
 
+        var packages = packageService.findAllPackage();
+        List<Package> packagesAsociados = new ArrayList<>();
 
+        for (Package pkg : packages){
+            if( pkg.getTruck().getUuid() == truck.getUuid())
+                packagesAsociados.add(pkg);
+        }
 
-        //packages.stream().forEach( mypackage -> System.out.println(mypackage.getStatus()));
-
-
-        //if(driver)  return "No existe el driver.";
-
-        //var truck = driver.getTruck();
-
-        //if (truck == null) return "No existe truck asociado.";
-
-        //var packages = truck.getMyPkg();
-
-        //if( packages.isEmpty() ) return "No contiene paquetes.";
-    /*
-        for (var myPkg : packages) {
-            if( ! ((myPkg.getStatus() == StatusPackage.DELIVERED) || (myPkg.getStatus() == StatusPackage.CANCELED)) ){
-                return "Todos los paquetes están gestionados (DELIVERED - CANCELED)";
+        for(Package myPkg : packagesAsociados){
+            if( !((myPkg.getStatus() == StatusPackage.DELIVERED) || (myPkg.getStatus() == StatusPackage.CANCELED)) ){
+                return "Hay un(os) paquete(s) que no ha(n) sido gestionados.";
             }
         }
-*/
-        return "Hay un(os) paquete(s) que no ha(n) sido gestionados.";
+
+        //var packages = truck.getMyPkg();
+        //if( packages.isEmpty() ) return "No contiene paquetes.";
+        /*
+        for (var myPkg : packages) {
+            if( !((myPkg.getStatus() == StatusPackage.DELIVERED) || (myPkg.getStatus() == StatusPackage.CANCELED)) ){
+                return "Hay un(os) paquete(s) que no ha(n) sido gestionados.";
+            }
+        }
+        */
+
+        return "Todos los paquetes están gestionados (DELIVERED - CANCELED)";
     }
 }

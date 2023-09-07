@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 import java.util.UUID;
@@ -57,4 +58,14 @@ public interface DriversSwagger {
             @ApiResponse(responseCode = "404")
     })
     public void delete(UUID uuid);
+
+    @Operation(
+            summary = "[OPCIONAL] Dado un UUID de DRIVER, evalúa si tiene sus paquetes gestionados [DELIVERED - CANCELED] ",
+            description = "Endpoint que nos ayuda a evaluar si un driver tiene sus paquetes gestionados"
+    )
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", content = { @Content(schema = @Schema(implementation = String.class), mediaType = "application/json") }),
+            @ApiResponse(responseCode = "404", content = { @Content(schema = @Schema(implementation = String.class), mediaType = "application/json") })
+    })
+    public String managedPackages(@PathVariable UUID uuid);
 }

@@ -5,24 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="48aafdce-34a0-46be-b0ba-cc0fbe437747" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/controller/packages/PackagesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/swagger/packagesProducts/PackagesProductsSwagger.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/ProyectoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/ProyectoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/controller/drivers/DriversController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/controller/drivers/DriversController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/controller/packages/PackagesProductsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/controller/packagesProducts/PackagesProductsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/drivers/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/drivers/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/package_products/PackageProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/package_products/PackageProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/packages/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/packages/Package.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/trucks/Truck.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/domain/trucks/Truck.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/packages/request/PackageRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/dto/packages/request/PackageRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/mapper/drivers/DriversMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/mapper/drivers/DriversMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/mapper/packages/PackagesMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/mapper/packages/PackagesMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/driver/DriverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/driver/DriverService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/driver/impl/DriverServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/driver/impl/DriverServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/packages/impl/PackageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/service/packages/impl/PackageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/swagger/packages/PackagesSwagger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/swagger/packages/PackagesSwagger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/swagger/drivers/DriversSwagger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/danicodes/spring/proyecto/swagger/drivers/DriversSwagger.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

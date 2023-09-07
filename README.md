@@ -133,7 +133,12 @@ En la presente documentación, se describen los puntos a evaluar y los endpoints
 ```
 
 ## [OPCIONALES 1] Exponer endpoint que dado un uuid del driver, evalue si tiene sus paquetes gestionados (es decir, todos los paquetes con estado DELIVERED o CANCELLED).
-
+```
+  // Este endpoint funciona pero no es eficiente.
+  // Debido a que al tratar de acceder desde la relación se producia un StackOverflow.
+  
+  [GET] localhost:8090/api/v1/drivers/managed-packages/{uuid_driver}
+```
 ## [OPCIONALES 2] ~~Adicionar pruebas unitarias a los componentes donde esté alojada la logica de negocio.~~
 
 ## [OPCIONALES 3]Adicionar seguridad.
