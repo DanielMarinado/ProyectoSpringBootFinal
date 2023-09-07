@@ -82,7 +82,7 @@ En la presente documentación, se describen los puntos a evaluar y los endpoints
 
 ## [Tarea 3] Exponer endpoint que permita registrar un paquetes con sus respectivos productos.
 ```
-[POST]  localhost:8090/api/v1/packages-products
+[POST]  localhost:8090/api/v1/packages
 
  Objeto de ejemplo:
  
@@ -112,12 +112,12 @@ En la presente documentación, se describen los puntos a evaluar y los endpoints
 
 ## [Tarea 4] Exponer endpoint que permita eliminar productos de un paquete si y solo si el paquete se encuentre en estado LOADED.
 ```
-[DELETE] localhost:8090/api/v1/packages-products/product/{uuid}
+[DELETE] localhost:8090/api/v1/packages-products/{uuid}
 ```
 
 ## [Tarea 5] Exponer endpoint que permita cambiar el estado de un paquete.
 ```
-[PATCH] localhost:8090/api/v1/packages-products/{uuid}
+[PATCH] localhost:8090/api/v1/packages/{uuid}
 
  Objeto de ejemplo (aunque se le envíen mas parámetros, sólo actualizará el status):
  {
@@ -131,6 +131,12 @@ En la presente documentación, se describen los puntos a evaluar y los endpoints
   // Para evaluar, favor revisar API Trucks y Drivers, son las api mas completas. 
   http://localhost:8090/swagger-ui/
 ```
+
+## [OPCIONALES 1] Exponer endpoint que dado un uuid del driver, evalue si tiene sus paquetes gestionados (es decir, todos los paquetes con estado DELIVERED o CANCELLED).
+
+## [OPCIONALES 2] ~~Adicionar pruebas unitarias a los componentes donde esté alojada la logica de negocio.~~
+
+## [OPCIONALES 3]Adicionar seguridad.
 
 ## Base de datos H2
 ```

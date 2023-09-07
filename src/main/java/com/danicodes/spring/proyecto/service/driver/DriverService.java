@@ -18,4 +18,6 @@ public interface DriverService {
     DriverResponseDto update(UUID driverUuid, DriverRequestDto driver);
 
     void delete(UUID driverUuid);
+
+    String managedPackages(UUID driverUUID);
 }

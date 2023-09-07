@@ -50,4 +50,9 @@ public class DriversController implements DriversSwagger {
     public void delete(@PathVariable UUID uuid) {
         driverService.delete(uuid);
     }
+
+    @GetMapping("/managed-packages/{uuid}")
+    public String managedPackages(@PathVariable UUID uuid){
+        return driverService.managedPackages(uuid);
+    }
 }

@@ -1,9 +1,9 @@
 package com.danicodes.spring.proyecto.domain.package_products;
 
 import com.danicodes.spring.proyecto.domain.packages.Package;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 

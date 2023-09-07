@@ -3,6 +3,7 @@ package com.danicodes.spring.proyecto.domain.drivers;
 import com.danicodes.spring.proyecto.domain.trucks.Truck;
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.ToString;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 

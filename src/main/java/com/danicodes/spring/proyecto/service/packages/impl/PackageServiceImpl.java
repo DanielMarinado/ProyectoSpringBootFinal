@@ -57,7 +57,6 @@ public class PackageServiceImpl implements PackageService {
         var aPackage = packagesMapper.requestToPackage(request);
         var aPackageSaved = packageRepositoryJpa.save(aPackage);
 
-
         if(Objects.nonNull(request.getProducts())) {
             packageProductService.addAllToPackage(aPackageSaved, request.getProducts());
         }

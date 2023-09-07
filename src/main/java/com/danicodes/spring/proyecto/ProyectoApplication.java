@@ -112,6 +112,8 @@ public class ProyectoApplication  implements CommandLineRunner {
 		aPackageDTO.setWeight(320.0);
 		aPackageDTO.setSchedule(LocalDateTime.now());
 
+		aPackageDTO.setTruck(trucksMapper.responseToTruck(aTruck));
+
 		// Crear package-Product
 		var aPackageProduct = new PackageProduct();
 		aPackageProduct.setCode("PackageProductENTITIII");

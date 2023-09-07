@@ -101,9 +101,9 @@ public class PackagesMapper {
             aPackage.setStatus(request.getStatus());
         }
 
-        //if (request.getProducts().size() > 0 ) {
-            //aPackage.setPackageProducts(request.getProducts().stream().collect(Collectors.toSet()));
-        //}
+        if (Objects.nonNull(request.getTruck())){
+            aPackage.setTruck(request.getTruck());
+        }
 
         return aPackage;
     }
